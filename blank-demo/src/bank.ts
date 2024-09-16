@@ -44,4 +44,20 @@ export default class Bank {
         this.accounts.push(account);
         return account;
     }
+    /**
+     * Deposit money into a bank account
+     * @param accountNumber -- account number of the bank account to deposit money into
+     * @param amount -- amount to deposit into the account
+     * @returns 
+     */
+    public deposit (accountNumber: string, amount: number){
+        const isAccExists = this.findAccount(accountNumber);
+        if(isAccExists){
+            isAccExists.balance += amount;
+        }
+        else{
+            throw new Error("Account does not exist");
+        }
+        return isAccExists;
+    }
 }
