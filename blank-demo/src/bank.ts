@@ -60,4 +60,15 @@ export default class Bank {
         }
         return isAccExists;
     }
+
+    public withdraw (accountNumber: string, amount: number){
+        const isAccExists = this.findAccount(accountNumber);
+        if(isAccExists && isAccExists.balance >= amount){
+            isAccExists.balance -= amount;
+        }
+        else{
+            throw new Error("Insufficient balance or Account does not exist");
+        }
+        return isAccExists;
+    }
 }
