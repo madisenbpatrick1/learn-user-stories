@@ -61,6 +61,13 @@ export default class Bank {
         return isAccExists;
     }
 
+    /**
+     * Withdraw money from a bank account
+     * @param accountNumber  -- account number of the user's bank account to withdraw money from
+     * @param amount -- amount to withdraw from the account
+     * @returns 
+     */
+
     public withdraw (accountNumber: string, amount: number){
         const isAccExists = this.findAccount(accountNumber);
         if(isAccExists && isAccExists.balance >= amount){
@@ -70,5 +77,19 @@ export default class Bank {
             throw new Error("Insufficient balance or Account does not exist");
         }
         return isAccExists;
+    }
+    /**
+     * 
+     * @param accountNumber -- account number of the bank account to check balance for
+     * @returns balance -- the current balance of the bank account
+     */
+    public checkBalance (accountNumber: string): number{
+        const isAccExists = this.findAccount(accountNumber);
+        if(isAccExists){
+            return isAccExists.balance;
+        }
+        else{
+            throw new Error("Account does not exist");
+        }
     }
 }

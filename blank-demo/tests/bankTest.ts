@@ -64,3 +64,20 @@ try {
 catch(_) {
     console.log("Scenario 7 passed");
 }
+
+//scenario 8 - check balance of existent account
+if(bank.checkBalance("2938298") === 0) {
+    console.log("Scenario 8 passed");
+}
+else {
+    console.log("Scenario 8 failed");
+}
+
+//scenario 9 - check balance of non-existent account
+try {
+    bank.checkBalance("1234567");
+    console.log("Scenario 9 failed");
+}
+catch(_) {
+    console.log("Scenario 9 passed");
+}
